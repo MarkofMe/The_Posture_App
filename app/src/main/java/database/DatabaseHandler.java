@@ -5,11 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by p4068830 on 19/04/16.
- */
-public class DatabaseHandler extends SQLiteOpenHelper
-{
+public class DatabaseHandler extends SQLiteOpenHelper {
 
     private Patient patient = new Patient();
     private Appointment appointment = new Appointment(); //idk??
@@ -39,50 +35,47 @@ public class DatabaseHandler extends SQLiteOpenHelper
     private static final String AP_DIAGNOSTIC = "Diagnostic";
 
     //Constructor
-    public DatabaseHandler(Context context)
-    {
+    public DatabaseHandler(Context context) {
         super(context, Database_Name, null, 1);
     }
 
     //Creates the database tables and columns
     @Override
-    public void onCreate(SQLiteDatabase db)
-    {
+    public void onCreate(SQLiteDatabase db) {
         String CREATE_PATIENTS_TABLE = "CREATE TABLE "
-            + Table_Patients
-            + "(" + PT_ID//Make sure that this isn't an issue
-            +" INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + PT_FIRSTNAME
-            + " TEXT NOT NULL, "
-            + PT_SURNAME
-            + " TEXT NOT NULL, "
-            + PT_DOB
-            + " TEXT NOT NULL, "
-            + PT_GENDER
-            + " TEXT NOT NULL, " + ") ";
+                + Table_Patients
+                + "(" + PT_ID//Make sure that this isn't an issue
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + PT_FIRSTNAME
+                + " TEXT NOT NULL, "
+                + PT_SURNAME
+                + " TEXT NOT NULL, "
+                + PT_DOB
+                + " TEXT NOT NULL, "
+                + PT_GENDER
+                + " TEXT NOT NULL, " + ") ";
 
         String CREATE_APPOINTMENTS_TABLE = "CREATE TABLE "
-            + Table_Appointments
-            + "(" + AP_ID//Make sure that this isn't an issue
-            + "INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + AP_PATIENTID
-            + " TEXT NOT NULL , "
-            + AP_APPOINTMENTNO
-            + " TEXT NOT NULL , "
-            + AP_APPOINTMENTDATE
-            + " TEXT NOT NULL , "
-            + AP_PATIENTIMAGE
-            + " TEXT NOT NULL , "
-            + AP_DIAGNOSTIC
-            + " TEXT NOT NULL, "
-            + " FOREIGN KEY ("+AP_PATIENTID+") REFERENCES " + Table_Patients + "("+PT_ID+"));";
+                + Table_Appointments
+                + "(" + AP_ID//Make sure that this isn't an issue
+                + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + AP_PATIENTID
+                + " TEXT NOT NULL , "
+                + AP_APPOINTMENTNO
+                + " TEXT NOT NULL , "
+                + AP_APPOINTMENTDATE
+                + " TEXT NOT NULL , "
+                + AP_PATIENTIMAGE
+                + " TEXT NOT NULL , "
+                + AP_DIAGNOSTIC
+                + " TEXT NOT NULL, "
+                + " FOREIGN KEY (" + AP_PATIENTID + ") REFERENCES " + Table_Patients + "(" + PT_ID + "));";
         db.execSQL(CREATE_PATIENTS_TABLE);
         db.execSQL(CREATE_APPOINTMENTS_TABLE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldNum, int newNum)
-    {
+    public void onUpgrade(SQLiteDatabase db, int oldNum, int newNum) {
         //Drop older table if exists and create fresh
         db.execSQL("Drop table if exists " + Table_Patients);
         db.execSQL("DROP TABLE IF EXISTS " + Table_Appointments);
@@ -90,8 +83,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     }
 
     // Adds data to the patients table
-    public boolean insertDataPatients()
-    {
+    public boolean insertDataPatients() {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(PT_FIRSTNAME, patient.getFirstName());
@@ -99,15 +91,14 @@ public class DatabaseHandler extends SQLiteOpenHelper
         values.put(PT_DOB, String.valueOf(patient.getDoB())); // because its a date variable
         values.put(PT_GENDER, patient.getGender());
         long result = db.insert(Table_Patients, null, values);
-        if(result == -1)// if the contents arent inserted db.insert returns -1, so this is a check for if the data is inserted
+        if (result == -1)// if the contents arent inserted db.insert returns -1, so this is a check for if the data is inserted
             return false;
         else
             return true;
     }
 
     // Adds data to the appointments table
-    public boolean insertDataAppointments()
-    {
+    public boolean insertDataAppointments() {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(AP_APPOINTMENTNO, appointment.getAppointmentNo());
@@ -115,15 +106,14 @@ public class DatabaseHandler extends SQLiteOpenHelper
         values.put(AP_PATIENTIMAGE, String.valueOf(appointment.getPatientImage()));
         values.put(AP_DIAGNOSTIC, appointment.getDiagnostic());
         long result = db.insert(Table_Patients, null, values);
-        if(result == -1)// if the contents arent inserted db.insert returns -1, so this is a check for if the data is inserted
+        if (result == -1)// if the contents arent inserted db.insert returns -1, so this is a check for if the data is inserted
             return false;
         else
             return true;
     }
 
     // Updates a field based on their ID
-    public boolean updatePatients(String id)
-    {
+    public boolean updatePatients(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(PT_ID, patient.getPatientID());
@@ -136,8 +126,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     }
 
     // Updates a field based on their ID
-    public boolean updateAppointments(String id)
-    {
+    public boolean updateAppointments(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(AP_ID, appointment.getAppointmentID());
@@ -151,15 +140,13 @@ public class DatabaseHandler extends SQLiteOpenHelper
     }
 
     // Deletes the patient based on ID
-    public Integer deletePatient(String id)
-    {
+    public Integer deletePatient(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(Table_Patients, "_id = ?", new String[]{id}); // delete method returns the number of affected rows
     }
 
     // Dealtes the appoinment based on ID
-    public Integer deleteAppointment(String id)
-    {
+    public Integer deleteAppointment(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(Table_Appointments, "_id = ?", new String[]{id}); // delete method returns the number of affected rows
     }

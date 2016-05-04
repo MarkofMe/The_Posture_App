@@ -12,13 +12,11 @@ class Patient {
     private String Gender;
 
     //Constructor
-    public Patient()
-    {
+    public Patient() {
 
     }
 
-    public void Patient(int PatientID, String FirstName, String SurName, Date DoB, String Gender)
-    {
+    public void Patient(int PatientID, String FirstName, String SurName, Date DoB, String Gender) {
         this.PatientID = PatientID;
         this.FirstName = FirstName;
         this.SurName = SurName;

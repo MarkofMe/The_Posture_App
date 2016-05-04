@@ -4,11 +4,7 @@ import android.media.Image;
 
 import java.util.Date;
 
-/**
- * Created by p4068830 on 27/04/16.
- */
-public class Appointment
-{
+public class Appointment {
     private int AppointmentID; // Primary Key
     private int PatientID; // Foreign key
     private int AppointmentNo;
@@ -17,13 +13,11 @@ public class Appointment
     private String Diagnostic;
 
     //Constructors
-    public Appointment()
-    {
+    public Appointment() {
 
     }
 
-    public Appointment(int appointmentID, int patientID, int appointmentNo, Date appointmentDate, Image patientImage, String diagnostic)
-    {
+    public Appointment(int appointmentID, int patientID, int appointmentNo, Date appointmentDate, Image patientImage, String diagnostic) {
         this.AppointmentID = appointmentID;
         this.PatientID = patientID;
         this.AppointmentNo = appointmentNo;

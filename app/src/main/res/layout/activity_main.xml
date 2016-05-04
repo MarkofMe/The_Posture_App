@@ -27,7 +27,7 @@
             android:src="@drawable/logo"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:contentDescription="@string/logo_description"/>
+            android:contentDescription="@string/logo_description" />
 
         <ImageView
             android:id="@+id/presents"
@@ -37,7 +37,7 @@
             android:src="@drawable/name"
             android:layout_below="@+id/phone_icon"
             android:layout_centerHorizontal="true"
-            android:contentDescription="@string/jolly_roger_presents"/>
+            android:contentDescription="@string/jolly_roger_presents" />
 
         <Button
             android:id="@+id/welcomeButton"

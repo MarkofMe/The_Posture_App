@@ -2,11 +2,7 @@ package database;
 
 import java.util.Date;
 
-/**
- * Created by p4068830 on 20/04/16.
- */
-public class JoelClass
-{
+public class JoelClass {
     private int id;
     private String firstName;
     private String surName;
@@ -16,7 +12,9 @@ public class JoelClass
         return id;
     }
 
-    public void setId(int p) { id = p; }
+    public void setId(int p) {
+        id = p;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -38,5 +36,7 @@ public class JoelClass
         return dob;
     }
 
-    public void setDob(Date doB) { dob = doB;}
+    public void setDob(Date doB) {
+        dob = doB;
+    }
 }
