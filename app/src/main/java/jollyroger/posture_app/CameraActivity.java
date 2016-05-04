@@ -6,13 +6,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 
-import static jollyroger.enterprise.R.id.camera_toolbar;
+import static jollyroger.posture_app.R.id.camera_toolbar;
 
 
 public class CameraActivity extends AppCompatActivity {
-    private GoogleApiClient client;
 
 
     @Override

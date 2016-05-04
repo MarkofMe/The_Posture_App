@@ -8,14 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
-import static jollyroger.enterprise.R.id.credits_toolbar;
+import static jollyroger.posture_app.R.id.credits_toolbar;
 
 
 public class CreditsActivity extends AppCompatActivity {
-    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +20,6 @@ public class CreditsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_credits);
         Toolbar toolbar = (Toolbar) findViewById(credits_toolbar);
         setSupportActionBar(toolbar);
-
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

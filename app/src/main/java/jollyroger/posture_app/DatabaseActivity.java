@@ -8,17 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
+import static jollyroger.posture_app.R.id.database_toolbar;
 
-import static jollyroger.enterprise.R.id.database_toolbar;
-
-/**
- * Created by Mark on 09/04/2016.
- */
 
 public class DatabaseActivity extends AppCompatActivity {
-    private GoogleApiClient client;
 
 
     @Override
@@ -27,10 +20,6 @@ public class DatabaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_database);
         Toolbar toolbar = (Toolbar) findViewById(database_toolbar);
         setSupportActionBar(toolbar);
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

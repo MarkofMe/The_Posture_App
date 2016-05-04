@@ -9,17 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
-
-import static jollyroger.enterprise.R.id.settings_toolbar;
-
-/**
- * Created by Mark on 07/04/2016.
- */
+import static jollyroger.posture_app.R.id.settings_toolbar;
 
 public class SettingsActivity extends AppCompatActivity {
-    private GoogleApiClient client;
 
 
     @Override
@@ -28,10 +20,6 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         Toolbar toolbar = (Toolbar) findViewById(settings_toolbar);
         setSupportActionBar(toolbar);
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
