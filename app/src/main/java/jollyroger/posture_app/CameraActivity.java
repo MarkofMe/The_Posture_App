@@ -20,6 +20,9 @@ public class CameraActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(camera_toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
